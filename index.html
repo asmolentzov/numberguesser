@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Number Guesser</title>
+    <link rel="stylesheet" href="reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script
+          src="https://code.jquery.com/jquery-3.3.1.js"
+          integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+          crossorigin="anonymous"></script>
+    <script src="scripts.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1><span class="title-number">Number</span> <span class="title-guesser">Guesser</span></h1>
+    </header>
+    <div class="container">
+      <form autocomplete="off">
+        <input class="guess-field" type="number" name="guess" placeholder="Enter your guess" min="1" max="100"/>
+        <button class="submit-guess" type="submit">Guess</button>
+        <button class="clear-button" type="reset" disabled>Clear</button>
+      </form>
+      <div class="errors"></div>
+      <div class="guess-container">
+        <p>
+          Your last guess was
+        </p>
+        <div class="number-guess"></div>
+        <p class="result"></p>
+        <button class="reset-button" type="reset">Reset</button>
+      </div>
+    </div>
+  </body>
+</html>
