@@ -36,8 +36,23 @@ button {
 }
 
 .container {
-  width: 30%;
+  width: 50%;
   margin: 0 auto; 
+}
+
+.range {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+}
+
+.min-box, .max-box {
+  width: 20%;
+  margin-right: 20px;
+}
+
+.range input {
+  margin-top: 5px;
 }
 
 .reset-button {

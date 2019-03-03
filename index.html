@@ -17,8 +17,22 @@
       <h1><span class="title-number">Number</span> <span class="title-guesser">Guesser</span></h1>
     </header>
     <div class="container">
+      <div class="range-container">
+        <h3>Specify a Range:</h3>
+        <form class="range" autocomplete="off">
+          <div class="min-box">  
+            <label for="minimum">Minimum</label>
+            <input id="minimum" type="number" />
+          </div>
+          <div class="max-box">
+            <label for="maximum">Maximum</label>
+            <input id="maximum" type="number" />
+          </div>
+          <button class="set-range" type="submit">Set Range</button>
+        </form>
+      </div>
       <form autocomplete="off">
-        <input class="guess-field" type="number" name="guess" placeholder="Enter your guess" min="1" max="100"/>
+        <input class="guess-field" type="number" name="guess" placeholder="Enter your guess" />
         <button class="submit-guess" type="submit">Guess</button>
         <button class="clear-button" type="reset" disabled>Clear</button>
       </form>
