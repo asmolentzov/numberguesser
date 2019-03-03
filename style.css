@@ -1,0 +1,65 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+header {
+  background-color: #404041;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-size: 3rem;
+  text-align: center;
+}
+
+form {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+button {
+  width: 40%;
+  margin: 0 5px 0 5px;
+}
+
+.title-number {
+  font-weight: bold;
+  color: #ED458B;
+}
+
+.title-guesser {
+  font-weight: lighter;
+  color: #E6E7E8;
+}
+
+.container {
+  width: 30%;
+  margin: 0 auto; 
+}
+
+.reset-button {
+  width: 100%;
+  margin: 10px 0 10px 0;
+}
+
+.guess-container {
+  display: none;
+  text-align: center;
+  color: #404041;
+}
+
+.number-guess {
+  font-size: 8rem;
+  color: #ED458B;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.errors {
+  text-align: center;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
