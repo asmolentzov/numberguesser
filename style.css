@@ -78,3 +78,7 @@ button {
   font-weight: bold;
   padding-bottom: 20px;
 }
+
+.next-round-button {
+  display: none;  
+}
