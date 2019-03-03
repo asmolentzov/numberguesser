@@ -12,7 +12,6 @@ header {
 
 form {
   padding-top: 20px;
-  padding-bottom: 20px;
 }
 
 input {
@@ -55,13 +54,19 @@ button {
   margin-top: 5px;
 }
 
+.set-range {
+  max-height: 20px;
+  margin-top: 16px;
+}
+
 .reset-button {
   width: 100%;
-  margin: 10px 0 10px 0;
+  margin: 30px 0 10px 0;
 }
 
 .guess-container {
   display: none;
+  padding-top: 20px;
   text-align: center;
   color: #404041;
 }
@@ -81,4 +86,6 @@ button {
 
 .next-round-button {
   display: none;  
+  margin-top: 20px;
+  padding: 10px;
 }
