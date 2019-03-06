@@ -12,7 +12,7 @@ $(document).ready(function() {
   
   $('.submit-guess').click(function(event) {
     event.preventDefault();
-    makeGuess(rangeMinimum, rangeMaximum, gameNumber);
+    makeGuess();
   });
   
   $('.clear-button').on('click', function() {
@@ -30,13 +30,13 @@ $(document).ready(function() {
   })
 });
 
-function makeGuess(min, max, correct) {
+function makeGuess() {
   $('.range-container').hide();
   var guess = parseInt($('.guess-field').val());
   try {
     if (isNaN(guess)) throw "a number";
-    if (guess < min) throw min + " or higher";
-    if (guess > max) throw max + " or lower";
+    if (guess < rangeMinimum) throw rangeMinimum + " or higher";
+    if (guess > rangeMaximum) throw rangeMaximum + " or lower";
   }
   catch(err) {
     $('.errors').show().text('Input must be ' + err);
@@ -46,25 +46,25 @@ function makeGuess(min, max, correct) {
   $('.guess-container').show();
   $('.clear-button').prop('disabled', false);
   $('.number-guess').text(guess);
-  if (guess === correct) {
+  if (guess === gameNumber) {
     $('.result').text("BOOM! You won! Next Round!");
     $('.guess-field').prop('disabled', true);
     $('.next-round-button').show();
-  } else if (guess > correct) {
+  } else if (guess > gameNumber) {
     $('.result').text('That is too high');
   } else {
     $('.result').text('That is too low');
   };
 };
 
-function setGameNumber(min, max) {
-  gameNumber = Math.floor((Math.random() * (max - min + 1)) + min);
+function setGameNumber() {
+  gameNumber = Math.floor((Math.random() * (rangeMaximum - rangeMinimum + 1)) + rangeMinimum);
 };
 
 function setRange() {
   rangeMinimum = parseInt($('#minimum').val());
   rangeMaximum = parseInt($('#maximum').val());
-  setGameNumber(rangeMinimum, rangeMaximum);
+  setGameNumber();
   $('.range-display').text(`Current Range: ${rangeMinimum} to ${rangeMaximum}`)
 };
 
@@ -78,7 +78,7 @@ function resetGame() {
   $('.range-display').text(`Current Range: ${rangeMinimum} to ${rangeMaximum}`);
   $('.guess-container').hide();
   $('.range-container').show();
-  setGameNumber(rangeMinimum, rangeMaximum);
+  setGameNumber();
 };
 
 function getNextRound() {
@@ -89,5 +89,5 @@ function getNextRound() {
   rangeMinimum -= 10;
   rangeMaximum += 10;
   $('.range-display').text(`Current Range: ${rangeMinimum} to ${rangeMaximum}`);
-  setGameNumber(rangeMinimum, rangeMaximum);
+  setGameNumber();
 };
