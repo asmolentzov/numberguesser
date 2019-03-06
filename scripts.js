@@ -1,15 +1,15 @@
+var gameNumber = Math.floor(Math.random() * 11);
+var rangeMinimum = 0;
+var rangeMaximum = 10;
+
 $(document).ready(function() {
-  
-  var rangeMinimum = 0;
-  var rangeMaximum = 10;
-  var gameNumber = Math.floor(Math.random() * (rangeMaximum + 1) + rangeMinimum);
   $('.range-display').text(`Current Range: ${rangeMinimum} to ${rangeMaximum}`);
   
   $('.set-range').click(function(event) {
     event.preventDefault();
     rangeMinimum = parseInt($('#minimum').val());
     rangeMaximum = parseInt($('#maximum').val());
-    gameNumber = Math.floor(Math.random() * (rangeMaximum + 1) + rangeMinimum);
+    setGameNumber(rangeMinimum, rangeMaximum);
     $('.range-display').text(`Current Range: ${rangeMinimum} to ${rangeMaximum}`)
   });
   
@@ -28,9 +28,12 @@ $(document).ready(function() {
     $('.guess-field').prop('disabled', false);
     $('#minimum').val('');
     $('#maximum').val('');
+    rangeMinimum = 0;
+    rangeMaximum = 10;
+    $('.range-display').text(`Current Range: ${rangeMinimum} to ${rangeMaximum}`);
     $('.guess-container').hide();
     $('.range-container').show();
-    gameNumber = setGameNumber(rangeMinimum, rangeMaximum);
+    setGameNumber(rangeMinimum, rangeMaximum);
   });
   
   $('.next-round-button').on('click', function(event) {
@@ -42,7 +45,7 @@ $(document).ready(function() {
     rangeMinimum -= 10;
     rangeMaximum += 10;
     $('.range-display').text(`Current Range: ${rangeMinimum} to ${rangeMaximum}`);
-    gameNumber = setGameNumber(rangeMinimum, rangeMaximum);
+    setGameNumber(rangeMinimum, rangeMaximum);
   })
 });
 
@@ -74,5 +77,6 @@ function makeGuess(min, max, correct) {
 };
 
 function setGameNumber(min, max) {
-  return Math.floor(Math.random() * (max + 1) + min);
+  gameNumber = Math.floor((Math.random() * (max - min + 1)) + min);
+  console.log(gameNumber);
 };
